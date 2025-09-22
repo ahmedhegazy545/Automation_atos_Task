@@ -2,6 +2,8 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import utiles.commonHelper.ElementHelper;
+
 // WE use fluent pattern (Method chainning )
 public class SigninPage {
     WebDriver driver;
@@ -12,15 +14,15 @@ public class SigninPage {
         this.driver=driver;
     }
     public  SigninPage EnterLoginEmail(String Email){
-        driver.findElement(LoginEmail).sendKeys(Email);
+        ElementHelper.sendText(driver,LoginEmail,Email);
         return this ;
     }
     public SigninPage enterLoginPassword(String pass){
-        driver.findElement(LoginPassword).sendKeys(pass);
+        ElementHelper.sendText(driver,LoginPassword,pass);
         return this ;
     }
     public SigninPage  clickOnLoginBtn() {
-        driver.findElement(LoginButton).click();
+        ElementHelper.click(driver,LoginButton);
         return this ;
     }
 }

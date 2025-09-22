@@ -16,8 +16,8 @@ public class SignUpTest extends  BaseTest {
     @Test(testName = "Signup", groups = "regression",priority =1)
     public  void signupHappyPathFlow (){
         Home.clickOnSignInUpLink();
-        signupPage.enterName("Ahmed").EnterEmail("Atos@gmail").clickOnSignupBtn()
-                .chooseGender()
+        signupPage.enterName("Ahmed").EnterEmail("Atos11@gmail").clickOnSignupBtn()
+                .chooseGender("Mrs")
                 .enterPassword("P@ssw0rd")
                 .chooseDay("6").chooseMonth("March").chooseYear("2003")
                 .checkOnNewsletter()

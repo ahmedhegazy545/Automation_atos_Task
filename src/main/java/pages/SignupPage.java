@@ -2,15 +2,14 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
+import utiles.commonHelper.ElementHelper;
 
 public class SignupPage {
     WebDriver driver;
     By Name = By.name("name");
     By Email = By.xpath("//input[@data-qa='signup-email']");
     By SignupBtn = By.xpath("//button[text()='Signup']");
-     By MrsGender= By.id("uniform-id_gender2");
+    By MrsGender = By.id("uniform-id_gender2");
     By Password = By.id("password");
     By DaysDropdown = By.id("days");
     By MonthDropdown = By.id("months");
@@ -27,87 +26,95 @@ public class SignupPage {
     By Mobile_number = By.id("mobile_number");
     By Create_Account = By.xpath("//button[text()='Create Account']");
     By AccountCreatedMessage = By.xpath("//h2[@data-qa='account-created']");
+
     public SignupPage(WebDriver driver) {
         this.driver = driver;
     }
-    public SignupPage enterName(String name){
-        driver.findElement(Name).sendKeys(name);
-        return  this;
-    }
-    public  SignupPage EnterEmail(String email){
-        driver.findElement(Email).sendKeys( email);
-        return  this;
-    }
-    public  SignupPage  clickOnSignupBtn (){
-        driver.findElement(SignupBtn).click();
+
+    public SignupPage enterName(String name) {
+        ElementHelper.sendText(driver, Name, name);
         return this;
     }
-    public  SignupPage  chooseGender(){
-        driver.findElement(MrsGender).click();
+
+    public SignupPage EnterEmail(String email) {
+        ElementHelper.sendText(driver, Email, email);
         return this;
     }
-    public  SignupPage enterPassword(String pass){
-        driver.findElement(Password).sendKeys(pass);
+
+    public SignupPage clickOnSignupBtn() {
+        ElementHelper.click(driver, SignupBtn);
         return this;
     }
-    public  SignupPage chooseDay(String day){
-        WebElement days = driver.findElement(DaysDropdown);
-        Select Days = new Select(days);
-        Days.selectByVisibleText(day);
+
+    public SignupPage chooseGender(String text) {
+        ElementHelper.findElementByValue(text, driver).click();
         return this;
     }
-    public  SignupPage chooseMonth(String month){
-        WebElement Month = driver.findElement(MonthDropdown);
-        Select Months = new Select(Month);
-        Months.selectByVisibleText(month);
+    public SignupPage enterPassword(String pass) {
+        ElementHelper.sendText(driver, Password,pass);
         return this;
     }
-    public  SignupPage chooseYear (String year){
-        WebElement Year = driver.findElement(YearsDropdown);
-        Select Years = new Select(Year);
-        Years.selectByValue(year);
+    public SignupPage chooseDay(String day) {
+        ElementHelper.selectFromDropDownByText(driver, DaysDropdown, day);
         return this;
     }
-    public  SignupPage checkOnNewsletter (){
-        driver.findElement(Newsletter).click();
+    public SignupPage chooseMonth(String month) {
+        ElementHelper.selectFromDropDownByText(driver, MonthDropdown, month);
         return this;
     }
-    public  SignupPage enterFirstName  (String name){
-        driver.findElement(First_name).sendKeys(name);
+
+    public SignupPage chooseYear(String year) {
+        ElementHelper.selectFromDropDownByText(driver, YearsDropdown, year);
         return this;
     }
-    public  SignupPage enterLastName  (String name){
-        driver.findElement(Last_name).sendKeys(name);
+
+    public SignupPage checkOnNewsletter() {
+        ElementHelper.click(driver, Newsletter);
         return this;
     }
-    public  SignupPage  enterAddress (String address){
-        driver.findElement(Address).sendKeys(address);
+
+    public SignupPage enterFirstName(String name) {
+        ElementHelper.sendText(driver, First_name, name);
         return this;
     }
-    public  SignupPage  chooseCountry ( String country){
-        WebElement Country = driver.findElement(CountryDropdown);
-        Select Countries = new Select(Country);
-        Countries.selectByVisibleText(country);
+
+    public SignupPage enterLastName(String name) {
+        ElementHelper.sendText(driver, Last_name, name);
         return this;
     }
-    public  SignupPage enterCity  ( String city){
-        driver.findElement(City).sendKeys(city);
+
+    public SignupPage enterAddress(String address) {
+        ElementHelper.sendText(driver, Address, address);
         return this;
     }
-    public  SignupPage enterState  (String state){
-        driver.findElement(State).sendKeys(state);
+
+    public SignupPage chooseCountry(String country) {
+        ElementHelper.selectFromDropDownByText(driver, CountryDropdown, country);
         return this;
     }
-    public  SignupPage enterZipCode (String code){
-        driver.findElement(Zipcode).sendKeys(code);
+
+    public SignupPage enterCity(String city) {
+        ElementHelper.sendText(driver, City, city);
         return this;
     }
-    public  SignupPage  enterMobileNumber( String number){
-        driver.findElement(Mobile_number).sendKeys(number);
+
+    public SignupPage enterState(String state) {
+        ElementHelper.sendText(driver, State, state);
         return this;
     }
-    public  SignupPage   clickOnCreateAccountBtn(){
-        driver.findElement(Create_Account).click();
+
+    public SignupPage enterZipCode(String code) {
+        ElementHelper.sendText(driver, Zipcode, code);
+        return this;
+    }
+
+    public SignupPage enterMobileNumber(String number) {
+        ElementHelper.sendText(driver, Mobile_number, number);
+        return this;
+    }
+
+    public SignupPage clickOnCreateAccountBtn() {
+        ElementHelper.click(driver, Create_Account);
         return this;
     }
 
