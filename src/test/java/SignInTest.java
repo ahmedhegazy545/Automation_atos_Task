@@ -2,6 +2,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.SigninPage;
+import utiles.DriverMange.DriverManager;
 
 public class SignInTest  extends  BaseTest{
     HomePage Home;
@@ -9,12 +10,12 @@ public class SignInTest  extends  BaseTest{
 
     @BeforeTest
     public  void setUp(){
-        Home =new HomePage(DriverManager.getDriver());
-        SigninPage=new SigninPage(DriverManager.getDriver());
+        Home =new HomePage();
+        SigninPage=new SigninPage();
     }
     @Test
     public  void SignIn(){
         Home.clickOnSignInUpLink();
-        SigninPage.EnterLoginEmail("rofida").enterLoginPassword("rofida@gmail.com").clickOnLoginBtn();
+        SigninPage.EnterLoginEmail().enterLoginPassword().clickOnLoginBtn();
     }
 }

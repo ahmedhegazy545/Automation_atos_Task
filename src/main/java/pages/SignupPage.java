@@ -2,10 +2,13 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import utiles.DriverMange.DriverManager;
 import utiles.commonHelper.ElementHelper;
+import utiles.commonHelper.Global;
 
 public class SignupPage {
     WebDriver driver;
+    Global global;
     By Name = By.name("name");
     By Email = By.xpath("//input[@data-qa='signup-email']");
     By SignupBtn = By.xpath("//button[text()='Signup']");
@@ -26,9 +29,11 @@ public class SignupPage {
     By Mobile_number = By.id("mobile_number");
     By Create_Account = By.xpath("//button[text()='Create Account']");
     By AccountCreatedMessage = By.xpath("//h2[@data-qa='account-created']");
+    By LogOutBtn=By.linkText("Logout");
 
-    public SignupPage(WebDriver driver) {
-        this.driver = driver;
+    public SignupPage() {
+        this.driver = DriverManager.getDriver();
+        global=Global.getInstance();
     }
 
     public SignupPage enterName(String name) {
@@ -36,8 +41,9 @@ public class SignupPage {
         return this;
     }
 
-    public SignupPage EnterEmail(String email) {
-        ElementHelper.sendText(driver, Email, email);
+    public SignupPage EnterEmail() {
+        global.setEmail();
+        ElementHelper.sendText(driver, Email, global.getEmail());
         return this;
     }
 
@@ -50,8 +56,9 @@ public class SignupPage {
         ElementHelper.findElementByValue(text, driver).click();
         return this;
     }
-    public SignupPage enterPassword(String pass) {
-        ElementHelper.sendText(driver, Password,pass);
+    public SignupPage enterPassword() {
+        global.setPassword();
+        ElementHelper.sendText(driver, Password,global.getPassword());
         return this;
     }
     public SignupPage chooseDay(String day) {
@@ -115,6 +122,10 @@ public class SignupPage {
 
     public SignupPage clickOnCreateAccountBtn() {
         ElementHelper.click(driver, Create_Account);
+        return this;
+    }
+    public SignupPage clickOnLogOnBtn() {
+        ElementHelper.click(driver, LogOutBtn);
         return this;
     }
 
