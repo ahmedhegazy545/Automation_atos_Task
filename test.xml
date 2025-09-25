@@ -9,8 +9,14 @@
                 </include>
             </methods>
         </class>
+        <class name="SignInTest">
+            <methods>
+                <include name="SignIn">
+                </include>
+            </methods>
+        </class>
     </classes>
-</test>
+<!--</test>
     <test name="Signin">
         <classes>
             <class name="SignInTest">
@@ -19,6 +25,6 @@
                     </include>
                 </methods>
             </class>
-        </classes>
+        </classes>-->
     </test>
 </suite>

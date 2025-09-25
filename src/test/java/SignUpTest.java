@@ -1,9 +1,14 @@
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.*;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.SignupPage;
 import utiles.DriverMange.DriverManager;
+import utiles.ExtentReports.ExtentReportListener;
+import utiles.datareaders.DataProviderUtils;
 
+import java.io.IOException;
+import java.util.Iterator;
+@Listeners(ExtentReportListener.class)
 public class SignUpTest extends  BaseTest {
     HomePage Home ;
     SignupPage signupPage ;
@@ -13,17 +18,23 @@ public class SignUpTest extends  BaseTest {
         Home= new HomePage();
         signupPage=new SignupPage();
     }
-    @Test(testName = "Signup", groups = "regression")
-    public  void signupHappyPathFlow (){
+ @DataProvider
+ public Iterator<Object[]> getData() throws IOException {
+        return DataProviderUtils.getData("src/test/resources/SignupTestData.json");
+ }
+    @Test(testName = "Signup", groups = "regression",dataProvider = "getData")
+    public  void signupHappyPathFlow (String Name,String Gender,String Day,String Month,String Year,
+                                      String FirstName,String Last,
+                                      String Address,String Country,String State ,String City,String ZipCode,String Mobile){
         Home.clickOnSignInUpLink();
-        signupPage.enterName("Ahmed").EnterEmail().clickOnSignupBtn()
-                .chooseGender("Mrs")
+        signupPage.enterName(Name).EnterEmail().clickOnSignupBtn()
+                .chooseGender(Gender)
                 .enterPassword()
-                .chooseDay("6").chooseMonth("March").chooseYear("2003")
+                .chooseDay(Day).chooseMonth(Month).chooseYear(Year)
                 .checkOnNewsletter()
-                .enterFirstName("Mo").enterLastName("Mo")
-                .enterAddress("Address").chooseCountry("India").enterState("state").enterCity("city")
-                .enterZipCode("+20").enterMobileNumber("0100")
+                .enterFirstName(FirstName).enterLastName(Last)
+                .enterAddress(Address).chooseCountry(Country).enterState(State).enterCity(City)
+                .enterZipCode(ZipCode).enterMobileNumber(Mobile)
                 .clickOnCreateAccountBtn();
         Home.clickOnSignInUpLink();
         signupPage.clickOnLogOnBtn();

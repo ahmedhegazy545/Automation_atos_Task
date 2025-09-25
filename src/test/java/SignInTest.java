@@ -1,9 +1,12 @@
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.SigninPage;
-import utiles.DriverMange.DriverManager;
+import utiles.ExtentReports.ExtentReportListener;
 
+@Listeners(ExtentReportListener.class)
 public class SignInTest  extends  BaseTest{
     HomePage Home;
     SigninPage SigninPage;
