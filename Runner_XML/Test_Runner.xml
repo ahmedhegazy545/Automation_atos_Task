@@ -1,0 +1,18 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="E2E_Test">
+
+    <test name="E2E">
+        <classes>
+            <class name="SignUpTest"/>
+            <class name="SignInTest"/>
+            <class name="ProductsTest"/>
+            <class name="addToCart"/>
+            <class name="CheckOutTest"/>
+            <class name="Payment_test"/>
+            <class name="ContactUsTest"/>
+            <class name="LogOutTest"/>
+        </classes>
+
+    </test>
+</suite>
