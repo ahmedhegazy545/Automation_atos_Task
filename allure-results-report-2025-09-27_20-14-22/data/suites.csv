@@ -1,0 +1,8 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","5176","Payment","E2E Journey","2025-09-27","passed","2025-09-27","Payment_test","E2E","Payment_test","Payment"
+"","3119","CheckAddress","E2E Journey","2025-09-27","passed","2025-09-27","CheckOutTest","E2E","CheckOutTest","CheckAddress"
+"","4151","ContactUs","E2E Journey","2025-09-27","passed","2025-09-27","ContactUsTest","E2E","ContactUsTest","ContactUs"
+"","14947","signupHappyPathFlow","E2E Journey","2025-09-27","passed","2025-09-27","SignUpTest","E2E","SignUpTest","signupHappyPathFlow"
+"","4009","SignIn","E2E Journey","2025-09-27","passed","2025-09-27","SignInTest","E2E","SignInTest","SignIn"
+"","1213","logout","E2E Journey","2025-09-27","passed","2025-09-27","LogOutTest","E2E","LogOutTest","logout"
+"","13025","AddToCart","E2E Journey","2025-09-27","passed","2025-09-27","addToCart","E2E","addToCart","AddToCart"
