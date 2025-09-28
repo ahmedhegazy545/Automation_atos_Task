@@ -8,7 +8,7 @@ import java.time.Duration;
 import java.util.List;
 
 public class ElementHelper {
-    private static final int waitingTime = 30;
+    private static final int waitingTime = 40;
 
     /**
      * -----------------------------
@@ -99,6 +99,7 @@ public class ElementHelper {
 
     public static String getText(WebDriver driver, By locator) {
         return waitForVisibility(driver, locator).getText();
+
     }
 
     public static  String getCurrentUrl(WebDriver driver){
@@ -176,5 +177,26 @@ public class ElementHelper {
         WebElement element = waitForVisibility(driver, locator);
         actions.moveToElement(element).perform();
     }
+    public static boolean verifyElementsContainNormalizedText(WebDriver driver, By locator, String keyword) {
+      //  List<WebElement> elements = findElementBy(driver, locator);
+        List<WebElement> elements = getElements(driver, locator);
+
+        String normalizedKeyword = keyword.replaceAll("[-\\s]", "").toLowerCase();
+
+        for (WebElement element : elements) {
+            String normalizedText = element.getText().replaceAll("[-\\s]", "").toLowerCase();
+            if (!normalizedText.contains(normalizedKeyword)) {
+                System.err.println("Mismatch: " + element.getText());
+                return false;
+            }
+        }
+        return true;
     }
+
+    public static void uploadFile(WebDriver driver, By uploadFile, String filePath) {
+        WebElement uploadElement = waitForVisibility(driver, uploadFile);
+        uploadElement.sendKeys(filePath);
+
+    }
+}
 

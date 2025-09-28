@@ -6,13 +6,14 @@ import utiles.DriverMange.DriverManager;
 import utiles.commonHelper.ElementHelper;
 import utiles.commonHelper.Global;
 
-// WE use fluent pattern (Method chainning )
+
 public class SigninPage {
     WebDriver driver;
     Global global;
     By LoginEmail =By.xpath("//input[@data-qa='login-email']");
     By  LoginPassword=By.xpath("//input[@data-qa='login-password']");
     By LoginButton =By.xpath("//button[@data-qa='login-button']");
+    By ProductsLink =By.xpath("//a[@href='/products']");
     public  SigninPage( ){
         this.driver= DriverManager.getDriver();
         global= Global.getInstance();
@@ -28,5 +29,9 @@ public class SigninPage {
     public SigninPage  clickOnLoginBtn() {
         ElementHelper.click(driver,LoginButton);
         return this ;
+    }
+    public ProductsPage clickOnProductsLink(){
+        ElementHelper.click(driver,ProductsLink);
+        return new ProductsPage();
     }
 }

@@ -1,0 +1,57 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="E2E Journey">
+<test name="E2E">
+    <classes>
+        <class name="SignUpTest">
+            <methods>
+                <include name="signupHappyPathFlow">
+                </include>
+            </methods>
+        </class>
+        <class name="SignInTest">
+            <methods>
+                <include name="SignIn">
+                </include>
+            </methods>
+        </class>
+        <class name="ProductsTest">
+            <methods>
+                <include name="Products">
+                </include>
+            </methods>
+        </class>
+        <class name="addToCart">
+            <methods>
+                <include name="AddToCart">
+                </include>
+            </methods>
+        </class>
+        <class name="CheckOutTest">
+            <methods>
+                <include name="CheckAddress">
+                </include>
+            </methods>
+        </class>
+        <class name="Payment_test">
+            <methods>
+                <include name="Payment">
+                </include>
+            </methods>
+        </class>
+        <class name="ContactUsTest">
+            <methods>
+                <include name="ContactUs">
+                </include>
+            </methods>
+        </class>
+        <class name="LogOutTest">
+            <methods>
+                <include name="logout">
+                </include>
+            </methods>
+        </class>
+    </classes>
+
+    </test>
+</suite>

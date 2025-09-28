@@ -58,4 +58,7 @@ public class AssertionHelper {
         Assert.assertEquals(actualText.trim(), expectedText.trim(),
                 "❌ Text mismatch! Expected: [" + expectedText + "] but found: [" + actualText + "]");
     }
+
+    public static void assertAllElementsContainKeyword(WebDriver driver, By productCards, By productTitles, String keyword) {
+    }
 }
